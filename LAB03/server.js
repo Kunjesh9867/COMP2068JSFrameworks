@@ -1,52 +1,40 @@
 const connect = require("connect"); // Using connect module
+const url = require("url"); // Using url module
 const app = connect();
 
-function calculate(req, res, next) {
-    // ["http://localhost:3000/lab2", "method=add&x=16&y=4"]
-    const splitByQuestionary = req.url.split("?");
-
-    // ["method=add","x=16, "y=4"]
-    const queryParams = splitByQuestionary[1].split("&");
-    let method, x, y;
-
-    queryParams.forEach((param) => {
-        const [key, value] = param.split("="); // Destructuring assignment
-        if (key === "method") {
-            method = value;
-        } else if (key === "x") {
-            x = parseFloat(value); // Converting the value into float
-        } else if (key === "y") {
-            y = parseFloat(value);
-        }
-    });
-
+function calculate(method, x, y) {
+    // Checking for method name
     switch (method) {
         case "add":
-            res.end(`<h1>${x} + ${y} = ${x + y}</h1>`);
-            break;
+            return `<h1>${x} + ${y} = ${x + y}</h1>`; // String Literals
+
         case "subtract":
-            res.end(`<h1>${x} - ${y} = ${x - y}</h1>`);
-            break;
+            return `<h1>${x} - ${y} = ${x - y}</h1>`;
+
         case "multiply":
-            res.end(`<h1>${x} * ${y} = ${x * y}</h1>`);
-            break;
+            return `<h1>${x} * ${y} = ${x * y}</h1>`;
+
         case "divide":
             if (y !== 0) {
-                res.end(`<h1>${x} / ${y} = ${x / y}</h1>`);
+                return `<h1>${x} / ${y} = ${x / y}</h1>`;
             } else {
-                res.end("<h1>Division by zero is not allowed</h1>");
-                return;
+                return "<h1>Division by zero is not allowed</h1>";
             }
-            break;
         default:
-            res.end("<h1>Invalid method</h1>");
-            return;
+            return "<h1>Invalid method</h1>";
     }
 }
 
-app.use("/lab2", calculate);
+// callback function
+app.use("/lab2", (req, res, next) => {
+    const parsedUrl = url.parse(req.url, true);
+    const { method, x, y } = parsedUrl.query; // Destructing assignment
+    const result = calculate(method, parseInt(x), parseInt(y)); // Calling calculate function
+    res.end(result); // Printing the result
+});
 app.use("/", printMessage); // Printing the message when url is incorrect
 
+// Printing Message
 function printMessage(req, res, next) {
     res.end(`<h1 style="text-align: center;">Check your URL</h1>`);
 }
