@@ -1,9 +1,12 @@
-const connect = require("connect");
+const connect = require("connect"); // Using connect module
 const app = connect();
 
 function calculate(req, res, next) {
-    const splitByQuestionmark = req.url.split("?");
-    const queryParams = splitByQuestionmark[1].split("&");
+    // ["http://localhost:3000/lab2", "method=add&x=16&y=4"]
+    const splitByQuestionary = req.url.split("?");
+
+    // ["method=add","x=16, "y=4"]
+    const queryParams = splitByQuestionary[1].split("&");
     let method, x, y;
 
     queryParams.forEach((param) => {
@@ -11,46 +14,42 @@ function calculate(req, res, next) {
         if (key === "method") {
             method = value;
         } else if (key === "x") {
-            x = parseFloat(value);
+            x = parseFloat(value); // Converting the value into float
         } else if (key === "y") {
             y = parseFloat(value);
         }
     });
 
-    if (isNaN(x) || isNaN(y)) {
-        res.end("Invalid parameters");
-        return;
-    }
-
-    let result;
-
     switch (method) {
         case "add":
-            result = x + y;
+            res.end(`<h1>${x} + ${y} = ${x + y}</h1>`);
             break;
         case "subtract":
-            result = x - y;
+            res.end(`<h1>${x} - ${y} = ${x - y}</h1>`);
             break;
         case "multiply":
-            result = x * y;
+            res.end(`<h1>${x} * ${y} = ${x * y}</h1>`);
             break;
         case "divide":
             if (y !== 0) {
-                result = x / y;
+                res.end(`<h1>${x} / ${y} = ${x / y}</h1>`);
             } else {
-                res.end("Division by zero is not allowed");
+                res.end("<h1>Division by zero is not allowed</h1>");
                 return;
             }
             break;
         default:
-            res.end("Invalid method");
+            res.end("<h1>Invalid method</h1>");
             return;
     }
-
-    res.end(`${x} ${method} ${y} = ${result}`);
 }
 
 app.use("/lab2", calculate);
+app.use("/", printMessage); // Printing the message when url is incorrect
+
+function printMessage(req, res, next) {
+    res.end(`<h1 style="text-align: center;">Check your URL</h1>`);
+}
 
 // Start the server
 app.listen(3000, () => {
