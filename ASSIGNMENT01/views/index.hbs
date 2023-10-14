@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*? GENERAL CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Popins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+      background: #080808 !important;
+      color: #fff;
+    }
+
+
+
+
+
+    /*------------------------------------ HEADER ---------------------------------------------- */
+    .containerXY {
+      padding: 10px 0%;
+    }
+
+
+
+    #color {
+      color: rgb(8, 0, 237);
+
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0px 0px;
+      flex-wrap: wrap;
+    }
+
+
+    nav ul li {
+      display: inline-block;
+      list-style: none;
+      margin: 10px 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 25px;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      background: #0028FF;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.5s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .kunjesh-ramani {
+      color: #fff !important;
+      margin-top: 0px;
+      padding-left: 1%;
+      font-size: 25px;
+      font-family: 'Roboto Mono', monospace;
+      /* padding-right: 50px; */
+    }
+
+    .header-text {
+      padding: 0px 10% !important;
+      width: 100%;
+      height: 100vh;
+      margin-top: 0px;
+      font-size: 30px;
+      background-image: url('http://localhost:3000/images/bg-image.png');
+      background-size: cover;
+      background-position: top;
+
+
+    }
+
+    .container {
+      padding: 10px 10%;
+    }
+
+    .header-text p {
+      padding-top: 150px;
+      font-size: 60px;
+      color: #fff !important;
+
+    }
+
+    .header-text h1 {
+      font-size: 50px;
+      padding-top: 20px;
+      margin: 20px;
+    }
+
+    #color {
+      color: rgb(8, 0, 237);
+
+    }
+
+
+    /*------------------------------------ FOOTER ---------------------------------------------- */
+    .copyright {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      background-color: #262626;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .copyright-p {
+      font-family: monospace;
+
+
+    }
+
+
+
+    .copyright i {
+      color: #0028FF;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="example">
+    <!--? Header  -->
+    <div id="header">
+      <div class="header-text">
+        <p> Welcome to my Portfolio</p>
+
+        <h1>
+          <span id="element"></span>
+        </h1>
+      </div>
+    </div>
+</body>
+
+</html>

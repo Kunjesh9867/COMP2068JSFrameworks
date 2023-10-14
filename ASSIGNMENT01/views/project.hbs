@@ -1,0 +1,515 @@
+<head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/95a7b1a514.js" crossorigin="anonymous"></script>
+
+    <title>About Me</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript and dependencies (Popper.js and jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .header-text {
+            padding: 0px 10% !important;
+            width: 100%;
+            height: 100vh;
+            margin-top: 0px;
+            font-size: 30px;
+            background-image: url('./images/home/bg-image.png');
+            background-size: cover;
+            background-position: top;
+
+        }
+
+
+        #header {
+            width: 100%;
+        }
+
+        /* Used for text align=center*/
+        .h1,
+        .look {
+            padding-top: 0%;
+            font-size: 60px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .co-curriculum-text {
+            padding: 10px 10%;
+        }
+
+
+        .h1,
+        .look {
+            padding-top: 0%;
+            font-size: 60px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+
+        .co-curriculum-text p {
+            padding-left: 1%;
+            font-size: 20px;
+            font-family: 'Roboto Mono';
+        }
+
+
+
+        /*? GENERAL CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Popins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+
+        }
+
+        body {
+            background: #080808 !important;
+            color: #fff;
+        }
+
+
+
+
+
+        /*------------------------------------ HEADER ---------------------------------------------- */
+        .containerXY {
+            padding: 10px 0%;
+        }
+
+
+
+        #color {
+            color: rgb(8, 0, 237);
+
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0px 0px;
+            flex-wrap: wrap;
+        }
+
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 25px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #0028FF;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .kunjesh-ramani {
+            color: #fff !important;
+            margin-top: 0px;
+            padding-left: 1%;
+            font-size: 23px;
+            font-family: 'Roboto Mono', monospace;
+            /* padding-right: 50px; */
+            font-size: 23px;
+        }
+
+        .header-text {
+            padding: 0px 10% !important;
+            width: 100%;
+            height: 100vh;
+            margin-top: 0px;
+            font-size: 30px;
+            background-image: url('http://localhost:3000/images/bg-image.png');
+            background-size: cover;
+            background-position: top;
+
+        }
+
+        .container {
+            padding: 10px 10%;
+        }
+
+        .header-text p {
+            padding-top: 150px;
+            font-size: 40px;
+            color: rgb(8, 0, 237);
+
+        }
+
+        .header-text h1 {
+            font-size: 50px;
+            padding-top: 20px;
+            margin: 20px;
+        }
+
+        #color {
+            color: rgb(8, 0, 237);
+
+        }
+
+
+        /*------------------------------------ FOOTER ---------------------------------------------- */
+        .copyright {
+            width: 100%;
+            text-align: center;
+
+            padding: 2px 10%;
+            background-color: #262626;
+            margin-bottom: 0px;
+            font-size: 20px;
+        }
+
+        .copyright-p {
+            font-family: monospace;
+            margin-top: 10px;
+
+
+        }
+
+
+
+        .copyright i {
+            color: #0028FF;
+        }
+
+
+
+        /*------------------------------------ PROJECTS ---------------------------------------------- */
+
+
+        .work-list {
+            /* background-color: #fff; */
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 50px;
+            margin-top: 35px;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+
+        .work {
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #0028FF);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer p {
+            font-size: 16px;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .icon-container {
+            color: #fff;
+            text-decoration: none;
+            font-size: 25px;
+            line-height: 60px;
+            margin-top: 20px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        .icon-container a {
+            margin-right: 10px;
+            color: blue;
+        }
+
+        .icon-container i {
+            margin-left: 10px;
+            font-size: 40px;
+            /* Adjust the font size to control the icon size */
+            color: #fff;
+        }
+
+        /* Changing Properties of Images */
+        .changing-prop-img {
+            width: 1050px;
+            height: 500px;
+        }
+
+        .containerXY {
+            padding: 10px 0%;
+
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div id="portfolio">
+        <div class="container">
+            <div class="work-list">
+                <div class="work">
+                    <img src="http://localhost:3000/images/MachoMeals.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Macho Meals</h3>
+                        <p>
+                            A MVC-based Fast Food website using ASP.NET, incorporating
+                            Google authentication, Stripe payment, scaffolding, and seamless database connectivity.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/ASP.NET" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/CalculatorGUI.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Calculator</h3>
+                        <p>
+                            A calculator GUI using the Scenebuilder visual tool.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/Java/Calculator"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/RetroWebsite.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Retro Website</h3>
+                        <p>
+                            A well-crafted vintage cloth shop website utilizing HTML, CSS, and JS, implementing PHP
+                            authentication, MySQL connectivity, and including pages for shop details, products, contact,
+                            and about information.
+                        </p>
+                        <div class="icon-container">
+
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/Web%20Development/Retro%20Website"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/StudentSittingArrangement.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Student Sitting Arrangement</h3>
+                        <p>
+                            A Java GUI application for organizing student seating during exams while adhering to
+                            constraints.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/Java/Student%20Sitting%20Arrangement"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/GuessMyNumber.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Guess My Number</h3>
+                        <p>
+                            A straightforward game aimed at reinforcing JavaScript concepts.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/HTML-CSS-JS/Guess-My-Number"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/RolltheDice.jpg" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Roll the Dice</h3>
+                        <p>A captivating two-player game featuring an eye catchy design.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/HTML-CSS-JS/Roll-the-Dice"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/Blackjack.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>BlackJack</h3>
+                        <p>
+                            A console-based C# game simulating the Blackjack casino experience, pitting the user against
+                            the computer.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/C-Sharp/BlackJack"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/RestaurantMenu.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3> Phoenix Restaurant</h3>
+                        <p>A restaurant menu created using Python with SQL connectivity. Carve for the best. Enjoy every
+                            meal every second!
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/blob/main/Python/Restaurant_Management.py"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/WorldWar3.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>World War 3</h3>
+                        <p>A C# game resonance to the fighting game.
+                        </p>
+                        <div class="icon-container">
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/C-Sharp/World_War_III"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/RandomStoryGenerator.png" class="changing-prop-img">
+
+                    <div class="layer">
+                        <h3>Random Story Generator</h3>
+                        <p>A Javascript-focused online website game. Inspired by Youtube tutorials.
+                        </p>
+                        <div class="icon-container">
+
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/HTML-CSS-JS/Random-Story-Generator"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images/Checklist.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>To Do List</h3>
+                        <p>A simple online to-do list.
+                        </p>
+                        <div class="icon-container">
+
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/HTML-CSS-JS/To-Do"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="work">
+                    <img src="http://localhost:3000/images//Movie.png" class="changing-prop-img">
+                    <div class="layer">
+                        <h3>Search Your Favorite Movie</h3>
+                        <p>An online website to search for movie posters that fetch data using REST API.
+                        </p>
+                        <div class="icon-container">
+
+
+                            <a href="https://github.com/Kunjesh9867/Projects/tree/main/HTML-CSS-JS/Movie-Search"
+                                target="_blank"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>
