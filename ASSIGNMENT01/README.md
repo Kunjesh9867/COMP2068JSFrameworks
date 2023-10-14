@@ -12,6 +12,6 @@
 
 
 #### Note: The server is taking time to load the image. Please navigate to another page and return back.
-
+#### Please connect to localhost. http://localhost:3000/
 
 
