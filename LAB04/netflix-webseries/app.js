@@ -19,6 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Routes added in index.js
 app.use('/', indexRouter);
 app.use('/mystery', indexRouter);
 app.use('/romance', indexRouter);
