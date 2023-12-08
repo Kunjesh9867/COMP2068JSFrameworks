@@ -18,7 +18,7 @@ function IsLoggedIn(req,res,next) {
 router.get("/", IsLoggedIn, (req, res, next) => {
     Cart.find()
         .then((data) => {
-            res.render("cartflight/index", { title: "Express", dataset: dat, user: req.username });
+            res.render("cartflight/index", { title: "Express", dataset: data, user: req.user });
             console.log("No ERROR");
         })
         .catch((err) => {

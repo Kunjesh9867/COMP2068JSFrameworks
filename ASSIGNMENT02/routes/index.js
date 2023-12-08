@@ -5,19 +5,19 @@ const passport = require("passport"); // Add this line
 /* GET home page. */
 router.get("/", function (req, res, next) {
     console.log(req.user);
-    res.render("index", { title: "Express", user: req.username });
+    res.render("index", { title: "Express", user: req.user});
 });
 router.get("/features", function (req, res, next) {
-    res.render("features", { title: "Express" });
+    res.render("features", { title: "Express", user: req.user });
 });
 router.get("/about", function (req, res, next) {
-    res.render("about", { title: "Express" });
+    res.render("about", { title: "Express", user: req.user });
 });
 router.get("/payment", function (req, res, next) {
-    res.render("payment", { title: "Express" });
+    res.render("payment", { title: "Express", user: req.user });
 });
 router.get("/thank", function (req, res, next) {
-    res.render("thank", { title: "Express" });
+    res.render("thank", { title: "Express", user: req.user });
 });
 
 router.get("/signup", function (req, res, next) {
@@ -58,7 +58,7 @@ router.get("/login", (req, res, next) => {
     // Clear messages
     req.session.messages = [];
     // Pass messages to view
-    res.render("login", { title: "Login", messages: messages, user: req.username });
+    res.render("login", { title: "Login", messages: messages, user: req.user });
 });
 
 router.post('/login', passport.authenticate('local', {
@@ -69,7 +69,7 @@ router.post('/login', passport.authenticate('local', {
 
 //? Register
 router.get("/register", (req, res, next) => {
-    res.render("register", { title: "Create a new account", user: req.username });
+    res.render("register", { title: "Create a new account", user: req.user });
 });
 
 router.post("/register", (req, res, next) => {  

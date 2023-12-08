@@ -17,7 +17,6 @@ router.get("/", IsLoggedIn, (req, res, next) => {
     Oneway.find()
         .then((data) => {
             res.render("oneway/index", { title: "Oneway List", dataset: data, user: req.user });
-            console.log(user);
             console.log("Loged IN Data");
         })
         

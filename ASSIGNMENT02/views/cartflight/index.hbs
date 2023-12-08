@@ -107,6 +107,8 @@ div .airline {
 
 <body>
     <h1>hey</h1>
+
+    {{#if user}}
     {{#each dataset}}
     <section>
         <div>
@@ -123,6 +125,7 @@ div .airline {
        <a href="/cart/delete/{{this._id}}"  class="btn btn-danger">Delete</a>
     </section>
     {{/each}}
+    {{/if}}
 
     <a href="/payment">Payment</a>
 
