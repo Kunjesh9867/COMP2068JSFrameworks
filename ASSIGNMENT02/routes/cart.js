@@ -7,18 +7,23 @@ const Oneway = require("../models/oneway");
 
 var mongoose = require("mongoose");
 
-
-function IsLoggedIn(req,res,next) {
+function IsLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
+        req.userId = req.user._id;
+        console.log(req.userId);
         return next();
     }
-    res.redirect('/login');
+    res.redirect("/login");
 }
 
 router.get("/", IsLoggedIn, (req, res, next) => {
     Cart.find()
         .then((data) => {
-            res.render("cartflight/index", { title: "Express", dataset: data, user: req.user });
+            res.render("cartflight/index", {
+                title: "Express",
+                dataset: data,
+                user: req.user,
+            });
             console.log("No ERROR");
         })
         .catch((err) => {
@@ -84,15 +89,64 @@ router.get("/add/:_id", (req, res, next) => {
 
 //? DELETE
 router.get("/delete/:_id", (req, res, next) => {
-    // call remove method and pass id as a json object
-    Cart.deleteOne({ _id: req.params._id })
+    const itemId = req.params._id;
+    console.log("Deleting item with ID:", itemId);
+
+    Cart.deleteOne({ _id: itemId })
         .exec()
         .then(() => {
-            res.redirect("/")
+            console.log("Item deleted successfully");
+            res.redirect("/");
         })
         .catch((err) => {
             console.log(err);
             res.status(500).send("Internal Server Error");
         });
+});
+
+router.get("/edit/:_id", IsLoggedIn, (req, res, next) => {
+    // Find the Project by ID
+    // Find available courses
+    // Pass them to the view
+    Cart.findById(req.params._id, (err, project) => {
+        if (err) {
+            console.log(err);
+        } else {
+            Course.find((err, courses) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.render("projects/edit", {
+                        title: "Edit a Project",
+                        project: project,
+                        courses: courses,
+                        user: req.user,
+                    });
+                }
+            }).sort({ name: 1 });
+        }
+    });
+});
+
+router.post("/edit/:_id", IsLoggedIn, (req, res, next) => {
+    // find project based on ID
+    // try updating with form values
+    // redirect to /Projects
+    Project.findOneAndUpdate(
+        { _id: req.params._id },
+        {
+            name: req.body.name,
+            dueDate: req.body.dueDate,
+            course: req.body.course,
+            status: req.body.status,
+        },
+        (err, updatedProject) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect("/projects");
+            }
+        }
+    );
 });
 module.exports = router;

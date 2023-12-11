@@ -12,16 +12,15 @@
 
     <!-- Internal styles -->
     <style>
-        /* Global body styling */
+        /* General styling for the body */
         body {
-            background-color: aqua;
-            /* Uncomment the following line to change font family */
-            /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-            font-weight: 500;
+            /* Specify font family and weight for the body text */
         }
 
         /* Styling for individual sections */
         section {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 500;
             max-width: 60%;
             max-height: 150px;
             margin: 2em auto;
@@ -37,7 +36,7 @@
         }
 
         div .nonstop {
-            padding-left: 20%;
+            padding-left: 10%;
             font-size: 15px;
         }
 
@@ -52,12 +51,40 @@
         }
 
         div .date {
-            padding-left: 18%;
+            padding-left: 15%;
         }
 
         div .airline {
             padding-left: 20%;
             font-size: 20px;
+        }
+
+        /* Styling for buttons and links */
+        .btn {
+            padding-left: 90%;
+        }
+
+        i {
+            text-decoration: none;
+        }
+
+        #xx {
+            text-decoration: none;
+            color: darkorange;
+        }
+
+        .xx {
+            text-decoration: none;
+            color: yellow;
+        }
+
+        .xx:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        a {
+            padding-right: 10px;
         }
 
         /* Styling for the search form */
@@ -91,15 +118,15 @@
             background-color: darkblue;
         }
 
-        /* Additional styling for positioning the search button */
         .searchbtn {
-            padding-left: 25%;
+            padding-left: 30%;
         }
     </style>
 </head>
 
+<!-- Heading and search form for the page -->
 <body>
-    <!-- Search form -->
+    <h1 style="text-align: center;" id="xx">Book Flight</h1>
     <div class="searchbtn">
         <form action="" class="search-form">
             <input type="text" placeholder="Search by City [ YYZ, Toronto, ATH ]" name="search" class="search-input">
@@ -107,18 +134,21 @@
         </form>
     </div>
 
-    <!-- Iterate through the dataset and display information in sections -->
+    <!-- Iterate through the dataset and display flight information -->
     {{#each dataset}}
     <section>
+        <!-- Display time, nonstop status, and price -->
         <div>
             <span class="time">{{this.time}}</span>
             <span class="nonstop">{{this.nonstop}}</span>
             <span class="price">CA ${{this.price}}</span>
         </div>
+        <!-- Display city, date, airline, and add to cart button -->
         <div>
             <span class="city">{{this.city}}</span>
             <span class="date">{{this.date}}</span>
             <span class="airline">{{this.flight}}</span>
+            <span class="btn"><a href="/cart/add/{{this._id}}"><i class="fa-solid fa-plane-circle-check fa-2xl" style="color:darkorchid;"></i></a></span>
         </div>
     </section>
     {{/each}}
